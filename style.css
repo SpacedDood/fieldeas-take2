@@ -1,3 +1,40 @@
+html,
+body {
+  background-image: linear-gradient(
+    to right top,
+    #bfc0c0,
+    #bcc9c7,
+    #bcd1c9,
+    #bfd9c8,
+    #c8e0c3
+  );
+  width: 100%;
+  height: 100%;
+  padding: 0%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: normal;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.container {
+  width: fit-content;
+  padding: 5px;
+  margin: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.445);
+}
+
+.searchCont {
+  width: 50%;
+  margin: auto;
+  margin-top: 69px;
+  text-align: center;
+}
+
 .searchArea {
   margin: auto;
   display: block;
@@ -5,20 +42,52 @@
   text-align: center;
 }
 
-.container {
-  width: fit-content;
-  padding: 5px;
-  border: 1px solid;
-  border-radius: 5px;
-}
-
 .imgCont {
-  max-width: 150px;
+  max-width: 100%;
 }
 
 .flex {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+#resultsArea {
+  padding: 10px;
+  margin: 20px auto;
+}
+
+.resultsCont {
+  padding: 10px;
+  margin: 20px;
+}
+
+.result {
+  max-width: 30%;
+  text-align: center;
+  box-shadow: 0px 0px 10px #76767675;
+  padding: 0;
+  text-decoration: none;
+}
+
+.result .title {
+  color: rgb(0, 0, 0);
+  word-wrap: normal;
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+  margin: 10px;
+}
+
+.result .year {
+  color: rgb(37, 37, 37);
+  text-align: center;
+  margin: 5px;
+}
+
+@media only screen and (max-width: 569px) {
+  .result {
+    max-width: 100%;
+  }
 }

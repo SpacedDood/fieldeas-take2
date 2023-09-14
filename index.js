@@ -19,6 +19,7 @@ const OMDB_API_KEY = '612fbaad';
 const apiString = 'https://www.omdbapi.com/?apikey=' + OMDB_API_KEY + '&';
 
 document.getElementById('searchSubmit').addEventListener('click', searchFilm);
+var lastSearch = 'AAA';
 
 function searchFilm(event) {
   event.preventDefault();
@@ -26,7 +27,6 @@ function searchFilm(event) {
   getFilmData(searchFilmText);
 }
 
-var lastSearch = 'AAA';
 async function getFilmData(filmQuery) {
   if (filmQuery == lastSearch) {
     alert('Please search for something else');
@@ -60,14 +60,23 @@ async function getFilmData(filmQuery) {
 }
 
 function populateResultsArea(results) {
+  var resultArea = document.getElementById('resultsArea');
+  resultArea.innerHTML = '';
+
   results.forEach((item) => {
-    var newItem = document.createElement('div');
-    newItem.innerHTML = `
-      <img class="imgCont" src="${item.Poster}" />
-      <p>${item.Title}</p>
-      <p>${item.Year}</p>
-    `;
-    newItem.classList.add('container');
-    document.getElementById('resultsArea').append(newItem);
+    createResultAndAppend(item, resultArea);
   });
+}
+
+function createResultAndAppend(item, resultsArea) {
+  var newItem = document.createElement('div');
+  newItem.innerHTML = `
+      <a href="${item.Poster}" target="_blank">
+      <img class="imgCont" src="${item.Poster}" />
+      </a>
+      <p class="title">${item.Title}</p>
+      <p class="year">${item.Year}</p>
+    `;
+  newItem.classList.add('result', 'container');
+  resultsArea.append(newItem);
 }
